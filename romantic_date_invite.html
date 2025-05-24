@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Date Invite</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top right, #ffe6f0, #e0c3fc);
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.8em;
+      color: #ff69b4;
+      text-shadow: 2px 2px #fff;
+      margin: 20px;
+      animation: pop 1s ease-in-out;
+    }
+    .buttons {
+      margin-top: 20px;
+      z-index: 2;
+    }
+    .btn {
+      background: #ffb6c1;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      margin: 10px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+    .btn:hover {
+      background: #ff69b4;
+      color: white;
+      transform: scale(1.05);
+    }
+    .flower {
+      position: absolute;
+      width: 40px;
+      animation: fall linear infinite;
+      z-index: 1;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+    @keyframes pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_a0f5cc2332.mp3" type="audio/mpeg">
+  </audio>
+
+  <h1>Will Tazzz go on a date with Saiesh?</h1>
+  <div class="buttons">
+    <button class="btn">Yes!</button>
+    <button class="btn">Of course!</button>
+    <button class="btn">Can’t wait!</button>
+  </div>
+
+  <script>
+    // Create falling flowers
+    for (let i = 0; i < 40; i++) {
+      const flower = document.createElement('img');
+      flower.src = 'https://i.imgur.com/Hh7YbM7.png';
+      flower.className = 'flower';
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = (4 + Math.random() * 4) + 's';
+      flower.style.top = '-' + (Math.random() * 200) + 'px';
+      document.body.appendChild(flower);
+    }
+  </script>
+</body>
+</html>
